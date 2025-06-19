@@ -1,37 +1,65 @@
 <html>
 <head>
+<title>My Personal Website</title>
 <style>
   body {
-    /* Grid background */
-    background-color: #fff; /* White background */
-    background-image: 
-      linear-gradient(to right, #eee 1px, transparent 1px),
-      linear-gradient(to bottom, #eee 1px, transparent 1px);
-    background-size: 0.5cm 0.5cm; /* 0.5cm x 0.5cm grid */
-    font-family: sans-serif; /* A nice default font */
+    /* Grid background inspired by maths notebooks */
+    background-color: #f7f7f7; /* Light grey background */
+    background-image:
+      linear-gradient(to right, #e0e0e0 1px, transparent 1px),
+      linear-gradient(to bottom, #e0e0e0 1px, transparent 1px);
+    background-size: 0.5cm 0.5cm; /* 0.5cm x 0.5cm grid spacing */
+    font-family: 'Inter', sans-serif; /* Using Inter font for modern look */
     margin: 0; /* Remove default body margin */
-    display: flex; /* Use flexbox for centering */
+    display: flex; /* Use flexbox for centering content */
     justify-content: center; /* Center horizontally */
     min-height: 100vh; /* Ensure body takes full viewport height */
-    padding: 20px; /* Add some padding around the content */
-    box-sizing: border-box; /* Include padding in element's total width and height */
+    padding: 20px; /* Add some padding around the main content area */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
   }
 
   div.content {
-    /* 80-columns limit and fit screen width */
-    max-width: 80ch; /* Limit to approximately 80 characters wide */
-    width: 100%; /* Allow it to take full width up to max-width */
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for content area */
-    padding: 20px; /* Padding inside the content box */
-    border-radius: 8px; /* Slightly rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    line-height: 1.6; /* Improve readability */
+    /* Apply 80-columns limit and make it fit the entire width of the screen responsively */
+    max-width: 80ch; /* Limit content to approximately 80 characters wide */
+    width: 100%; /* Allow content to take full width up to max-width on smaller screens */
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white for the content box */
+    padding: 30px; /* Generous padding inside the content box */
+    border-radius: 12px; /* Nicely rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* More prominent shadow for depth */
+    line-height: 1.7; /* Improve readability with more line spacing */
+    color: #333; /* Darker text color for better contrast */
+    text-align: justify; /* Justify text for a clean block look */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #222; /* Slightly darker headings */
   }
 
   a {
+    color: #007bff; /* Standard link blue */
+    text-decoration: none; /* Remove underline */
     word-wrap: break-word; /* Ensures long URLs break and fit within the container */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+  }
+
+  a:hover {
+    color: #0056b3; /* Darker blue on hover */
+    text-decoration: underline; /* Underline on hover for better UX */
+  }
+
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 768px) {
+    body {
+      padding: 10px; /* Less padding on smaller screens */
+    }
+    div.content {
+      padding: 20px; /* Adjust content padding */
+      border-radius: 8px; /* Slightly less rounded corners */
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+    }
   }
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="content">
