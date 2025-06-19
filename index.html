@@ -1,4 +1,40 @@
-<html><body>
+<html>
+<head>
+<style>
+  body {
+    /* Grid background */
+    background-color: #fff; /* White background */
+    background-image: 
+      linear-gradient(to right, #eee 1px, transparent 1px),
+      linear-gradient(to bottom, #eee 1px, transparent 1px);
+    background-size: 0.5cm 0.5cm; /* 0.5cm x 0.5cm grid */
+    font-family: sans-serif; /* A nice default font */
+    margin: 0; /* Remove default body margin */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    padding: 20px; /* Add some padding around the content */
+    box-sizing: border-box; /* Include padding in element's total width and height */
+  }
+
+  div.content {
+    /* 80-columns limit and fit screen width */
+    max-width: 80ch; /* Limit to approximately 80 characters wide */
+    width: 100%; /* Allow it to take full width up to max-width */
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for content area */
+    padding: 20px; /* Padding inside the content box */
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    line-height: 1.6; /* Improve readability */
+  }
+
+  a {
+    word-wrap: break-word; /* Ensures long URLs break and fit within the container */
+  }
+</style>
+</head>
+<body>
+<div class="content">
 Hello, World!
 <br/><br/>
 With the help of Google Gemini, I've been building an interactive version of my resume.
@@ -14,5 +50,6 @@ Enough words! Why don't you give it a try? It's interactive!
 <a href="https://studio--resume-sage-iw2hl.us-central1.hosted.app">https://studio--resume-sage-iw2hl.us-central1.hosted.app</a>
 <br/><br/>
 PS: I could not resist dropping a few Easter eggs here and there in the app. :)
+</div>
 </body>
 </html>
