@@ -3,6 +3,129 @@
 <title>My Personal Website</title>
 <style>
   body {
+    background-color: #f7f7f7;
+    background-image:
+      linear-gradient(to right, #e0e0e0 1px, transparent 1px),
+      linear-gradient(to bottom, #e0e0e0 1px, transparent 1px);
+    background-size: 0.5cm 0.5cm;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Allinea anche verticalmente */
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  /* Animazione di ingresso per il contenitore */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  div.content {
+    max-width: 80ch;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    line-height: 1.7;
+    color: #333;
+    text-align: justify;
+    /* NUOVA RIGA: Applica l'animazione */
+    animation: fadeIn 1s ease-out; 
+  }
+
+  /* Stile per l'effetto macchina da scrivere e il cursore */
+  #typed-text {
+    border-right: 3px solid #333; /* Il cursore */
+    padding-right: 2px;
+    animation: blink 0.75s step-end infinite;
+    word-wrap: break-word; /* Assicura che il testo vada a capo correttamente */
+  }
+
+  /* Animazione del cursore che lampeggia */
+  @keyframes blink {
+    from, to { border-color: transparent; }
+    50% { border-color: #333; }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #222;
+  }
+
+  a {
+    color: #007bff;
+    text-decoration: none;
+    word-wrap: break-word;
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    body {
+      padding: 10px;
+    }
+    div.content {
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="content">
+    <div id="typed-text"></div>
+</div>
+
+<script>
+    // Seleziona l'elemento dove apparirà il testo
+    const element = document.getElementById('typed-text');
+    
+    // Il testo che vuoi far apparire
+    const textToType = `Hello, World!<br/><br/>With the help of Google Gemini, I've been building an interactive version of my resume.<br/><br/>It was fun, and it was scary.<br/><br/>It is not just AI that did the work: this little project has been in the back of my mind since many years. Back then, I would have obtained a much simpler result, that would still display the same "personality" behind the app.<br/><br/>Today, the same "product" and the same "personality" can be displayed in a polished way by leveraging AI as a technology, not a replacement.<br/><br/>Enough words! Why don't you give it a try? It's interactive!<br/><br/><a href="https://studio--resume-sage-iw2hl.us-central1.hosted.app">https://studio--resume-sage-iw2hl.us-central1.hosted.app</a><br/><br/>PS: I could not resist dropping a few Easter eggs here and there in the app. :)<br/>Drop me a message on one of my socials if you can find them all! &lt;3`;
+
+    let index = 0;
+
+    function typeWriter() {
+        if (index < textToType.length) {
+            // Gestisce i tag HTML (come <br/> o <a>) per non scriverli carattere per carattere
+            if (textToType.charAt(index) === '<') {
+                const closingTagIndex = textToType.indexOf('>', index);
+                element.innerHTML += textToType.substring(index, closingTagIndex + 1);
+                index = closingTagIndex + 1;
+            } else {
+                element.innerHTML += textToType.charAt(index);
+                index++;
+            }
+        } else {
+            // Ferma l'animazione del cursore quando il testo è finito
+            element.style.borderRight = 'none';
+            clearInterval(typingInterval);
+        }
+    }
+
+    // Avvia la funzione di scrittura
+    const typingInterval = setInterval(typeWriter, 40); // Puoi cambiare questo valore per rendere la scrittura più veloce o lenta
+</script>
+
+</body>
+</html>
+
+<!--
+<html>
+<head>
+<title>My Personal Website</title>
+<style>
+  body {
     /* Grid background inspired by maths notebooks */
     background-color: #f7f7f7; /* Light grey background */
     background-image:
@@ -82,3 +205,4 @@ PS: I could not resist dropping a few Easter eggs here and there in the app. :)
 </div>
 </body>
 </html>
+-->
